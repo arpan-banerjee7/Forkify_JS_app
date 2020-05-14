@@ -1,0 +1,32 @@
+{
+  "name": "startup_assignments",
+  "version": "1.0.0",
+  "description": "scraping websites",
+  "main": "scrap-web-page.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "author": "Arpan",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@types/request-promise": "^4.1.45",
+    "babel-loader": "^8.0.6",
+    "core-js": "^3.6.4",
+    "html-webpack-plugin": "^3.2.0",
+    "install": "^0.13.0",
+    "npm": "^6.14.2",
+    "regenerator-runtime": "^0.13.3",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
+    "jquery": "^3.4.1"
+  }
+}
