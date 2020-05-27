@@ -1,4 +1,5 @@
 import Search from "./model/Search";
+import Recipe from "./model/Recipe";
 import * as searchView from "./view/searchView";
 import { elements, renderLoader, clearLoader } from "./view/base";
 const state = {};
@@ -37,6 +38,7 @@ elements.searchForm.addEventListener("submit", (e) => {
   controlSearch();
 });
 
+//event bubbling
 elements.searchResPages.addEventListener("click", (e) => {
   const btn = e.target.closest(".btn-inline");
   if (btn) {
@@ -46,3 +48,26 @@ elements.searchResPages.addEventListener("click", (e) => {
     searchView.renderResults(state.search.result, goToPage);
   }
 });
+
+/**
+ * SEARCH CONTROLLER
+ */
+
+const controlRecipe = () => {
+  const id = window.location.hash.replace("#", "");
+  if (id) {
+    state.recipe = new Recipe(id);
+    try{
+      console.log(id);
+      r.getRecipe();
+      console.log(r)
+    }catch(err){
+alert("error in recipe search index")
+    }
+    
+  }
+};
+
+["hashchange", "load"].forEach((e) =>
+  window.addEventListener(e, controlRecipe)
+);

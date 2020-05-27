@@ -94,6 +94,7 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
   recipes.slice(start, end).forEach((element) => {
     renderRecipe(element);
   });
+  console.log(recipes.length)
   // render pagination buttons
   renderButtons(page, recipes.length, resPerPage);
 };
