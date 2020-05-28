@@ -9,8 +9,9 @@ const state = {};
  */
 const controlSearch = async () => {
   // 1) Get query from view
-  const query = searchView.getInput();
+  //const query = searchView.getInput();
 
+  const query = "pizza";
   if (query) {
     // 2) New search object and add to state
     state.search = new Search(query);
@@ -57,16 +58,22 @@ const controlRecipe = () => {
   const id = window.location.hash.replace("#", "");
   if (id) {
     state.recipe = new Recipe(id);
-    try{
+    try {
       console.log(id);
-      r.getRecipe();
-      console.log(r)
-    }catch(err){
-alert("error in recipe search index")
+      state.recipe.getRecipe();
+      //testing
+      window.r = state.recipe;
+      console.log(state.recipe);
+    } catch (err) {
+      alert("error in recipe search index");
     }
-    
   }
 };
+//testing
+window.addEventListener("load", (e) => {
+  e.preventDefault();
+  controlSearch();
+});
 
 ["hashchange", "load"].forEach((e) =>
   window.addEventListener(e, controlRecipe)
