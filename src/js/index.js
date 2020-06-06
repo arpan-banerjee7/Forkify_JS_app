@@ -152,7 +152,19 @@ const controlLike = () => {
   }
   likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
+// Restore liked recipes on page load
+window.addEventListener("load", () => {
+  state.likes = new Likes();
 
+  // Restore likes
+  state.likes.readStorage();
+
+  // Toggle like menu button
+  likesView.toggleLikeMenu(state.likes.getNumLikes());
+
+  // Render the existing likes
+  state.likes.likes.forEach((like) => likesView.renderLike(like));
+});
 // Handle delete and update list item events
 elements.shopping.addEventListener("click", (e) => {
   const id = e.target.closest(".shopping__item").dataset.itemid;
