@@ -4,6 +4,18 @@ export const getInput = () => elements.searchInput.value;
 export const clearInput = () => {
   elements.searchInput.value = "";
 };
+export const highlightSelected = (id) => {
+  const resultsArr = Array.from(document.querySelectorAll(".results__link"));
+  resultsArr.forEach((el) => {
+    el.classList.remove("results__link--active");
+  });
+  // document
+  //   .querySelector(".results__link--active")
+  //   .remove("results__link--active");
+  document
+    .querySelector(`.results__link[href*="${id}"]`)
+    .classList.add("results__link--active");
+};
 
 export const clearResults = () => {
   elements.searchResList.innerHTML = "";
@@ -94,7 +106,7 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
   recipes.slice(start, end).forEach((element) => {
     renderRecipe(element);
   });
-  console.log(recipes.length)
+  console.log(recipes.length);
   // render pagination buttons
   renderButtons(page, recipes.length, resPerPage);
 };
