@@ -6,3 +6,4 @@ It is developed using ES6, NPM, Babel and Webpack.
 [View the Live demo here](happy-wilson-9b5fb2.netlify.app/)
 
 
+![](app_img.JPG)
